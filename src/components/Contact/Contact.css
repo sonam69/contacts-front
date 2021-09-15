@@ -1,0 +1,89 @@
+.contact {
+  padding: 0 20px;
+  background: white;
+  position: relative;
+  border: 1px solid black;
+  border-radius: 7px;
+  box-shadow: 0px 5px 25px #3648550D;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.contact:hover,
+.contact:not(.closed) {
+  background: #2AB7CA;
+  color: white;
+}
+
+.contact + .contact {border-top: 0;}
+
+.contact_head,
+.contact_body_wrapper {
+  padding: 20px 0;
+}
+
+.contact_head {
+  position: relative;
+}
+
+.contact_body_wrapper {padding-right: 50px;}
+
+.contact_body_wrapper{
+  display: flex;
+  flex-direction: column;
+}
+
+.contact_body_wrapper a + a:not(.edit) {
+  margin-top: 15px;
+}
+
+.contact_head:hover + .contact_body a {color: white;}
+
+.contact_body_wrapper a:not(.edit) {
+  display: inline-flex; 
+  align-items: center;
+}
+
+.icon::before {
+  content: "";
+  margin-right: 10px;
+  padding: 12px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.icon-contact::before {background-image: url(../../assets/images/contact.svg);}
+.contact:hover .icon-contact::before,
+.contact:not(.closed) .icon-contact::before {background-image: url(../../assets/images/contact_active.svg);}
+.icon-email::before {background-image: url(../../assets/images/email.svg);}
+.icon-address::before {background-image: url(../../assets/images/map.svg);}
+.icon-phone::before {background-image: url(../../assets/images/phone.svg);}
+
+.contact .edit {
+  display: inline-block;
+  height: 20px; width: 20px;
+  background: url(../../assets/images/edit.svg) center no-repeat;
+  background-size: contain;
+  position: absolute;
+  right: 28px; top: 80px;
+  padding: 15px;
+}
+.contact .edit:hover {background-image: url(../../assets/images/edit_active.svg);}
+
+/*****************dropdown css******************/
+
+.contact.calculated .contact_body {
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.contact.calculated.closed .contact_body {
+  max-height: 0 !important;
+}
+
+.listWrapper .contact.calculating .contact_body {
+  opacity: 0;
+  max-height: none !important;
+  transition: none !important;
+}

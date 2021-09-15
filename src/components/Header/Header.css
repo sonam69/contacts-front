@@ -1,0 +1,136 @@
+header {
+  padding: 20px 0;
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+header .logo {
+  padding: 22px;
+  background: url(../../logo.png) center no-repeat;
+  background-size: contain;
+}
+
+nav a,
+header a {position: relative;}
+
+nav a.active::before,
+header a.active::before{
+  content: "";
+  height: 4px;
+  width: 0;
+  position: absolute;
+  bottom: -2px; left: 0;
+  background: #DF2D3C;
+  width: 100%;
+}
+
+header ul {display: none;}
+@media (max-width: 991.98px) {
+  header .container {
+    max-width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  header ul {
+    display: flex;
+    align-items: center;
+    padding-right: 54px;
+  }
+
+  header ul li + li {margin-left: 30px;}
+}
+
+.logout {
+  height: 30px; width: 30px;
+  background: url(../../assets/images/logout.svg) center no-repeat;
+  background-size: contain;
+  position: absolute;
+  right: 28px; bottom: 34px;
+}
+.logout:hover {background-image: url(../../assets/images/logout_active.svg);}
+
+header .logout {
+  height: 24px; width: 24px;
+  right: 15px; top: 50%;
+  transform: translateY(-50%);
+}
+
+.burger {
+  height: 42px;
+  width: 42px;
+  border-radius: 8px;
+  position: relative;
+  z-index: 5;
+}
+@media (min-width: 992px) {
+  .burger {display: none;}
+}
+.burger div {
+  display: block;
+  height: 2px;
+  width: 22px;
+  background: black;
+  border-radius: 2px;
+  position: absolute;
+  left: 10px;
+  top: 14px;
+  transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+}
+.burger:hover div,
+.isNavOpen .burger div {background: #DF2D3C;}
+.burger div:nth-child(2) {transform: translateY(6px);}
+.burger div:last-child {transform: translateY(12px);}
+.isNavOpen .burger div:nth-child(1) {transform: translateY(6px) rotate(45deg);}
+.isNavOpen .burger div:nth-child(2) {opacity: 0;}
+.isNavOpen .burger div:nth-child(3) {transform: translateY(6px) rotate(-45deg);}
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  background-color: rgba(0, 33, 65, 0.43);
+  transition: opacity 1s ease, width 0.2s ease 1s;
+  z-index: 3;
+  pointer-events: none;
+}
+.isNavOpen .overlay {
+  width: 100%;
+  opacity: 1;
+  transition: opacity 1s ease;
+  pointer-events: initial;
+}
+@media (max-width: 991.98px) {
+  .isNavOpen #root {overflow: hidden !important;}
+}
+@media (min-width: 992px) {
+  .overlay {display: none;}
+}
+
+nav {
+  height: 100vh;
+  width: 300px;
+  position: fixed;
+  right: 0; top: 0;
+  transform: translateX(100%);
+  background: white;
+  padding: 90px 40px 40px;
+  text-align: center;
+  z-index: 4;
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+}
+.isNavOpen nav {transform: none;}
+
+nav li + li {margin-top: 20px;}
+
+@media (min-width: 992px) {
+  nav {display: none;}
+}

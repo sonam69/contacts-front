@@ -1,6 +1,6 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## ENVIRONMENT VARIABLES
+In .env file set REACT_APP_APIBASEURL to production api base url
+In .env file set REACT_APP_APIBASEURL_DEV to development api base url
 
 ## Available Scripts
 

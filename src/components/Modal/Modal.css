@@ -1,0 +1,56 @@
+.modal_overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  background-color: rgba(0, 33, 65, 0.43);
+  transition: opacity 0.5s ease, width 0.2s ease 1s;
+  z-index: 9;
+  pointer-events: none;
+}
+
+.isModalOpen .modal_overlay{
+  width: 100%;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  pointer-events: initial;
+}
+.isModalOpen #root {overflow: hidden !important;}
+
+.modal {
+  width: 300px;
+  position: fixed;
+  left: 50%; top: calc(50vh - 140px);
+  transform: translateX(-50%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+  text-align: center;
+  background: white;
+  border-radius: 8px;
+  padding: 40px 20px 20px;
+  transition: opacity 0.5s ease;
+}
+.isModalOpen .modal {
+  opacity: 1;
+  pointer-events: initial;
+}
+
+.modal h2 {
+  font-size: 2.6rem;
+  margin-bottom: 2rem;
+}
+
+.modal p {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.modal_footer button {
+  width: 90px;
+}
+
+.modal_footer button + button {margin-left: 20px;}
+

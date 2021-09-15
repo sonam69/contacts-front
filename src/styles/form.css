@@ -1,0 +1,110 @@
+form {
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: -3px -3px 10px -1px rgb(255 255 255 / 95%), 3px 3px 10px -1px rgb(89 34 34 / 40%);
+  margin: 0 auto;
+  max-width: 400px;
+}
+
+.form_item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.form_item label{
+  order: -1;
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  transition: color 0.3s ease;
+}
+.form_item input:required + label::after{content: " *";}
+.form_item.error label {color: #DF2D3C;}
+
+.form_item small {
+  margin-top: 0.3rem;
+  color: #DF2D3C;
+  font-size: 1.2rem;
+}
+.form_item small:empty{display: none;}
+
+.form_item input {
+  width: 100%;
+  font-size: 1.6rem;
+  padding: 14px 15px;
+  border: 1px solid rgba(102, 83, 83, 0.5);
+  border-radius: 8px;
+  background: none;
+  color: #26150E;
+  resize: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.form_item input:focus {
+  border-color: rgba(102, 83, 83, 1);
+}
+
+.form_item.error input {border-color: #DF2D3C;}
+
+.form_error {
+  margin-bottom: 20px;
+  background: #DF2D3C;
+  border-radius: 8px;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+.form_error:empty {display: none;}
+
+.form_actions {text-align: center;}
+
+.form_actions_toggle {
+  margin-top: 20px;
+  opacity: 0.8;
+  font-size: 1.4rem;
+  font-weight: 600;
+  transition: opacity 0.3s ease;
+}
+.form_actions_toggle:hover {opacity: 1;}
+
+
+.form_group {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.form_group .form_item {width: calc(50% - 10px);}
+
+.form_group-mobile .form_item:first-child {
+  flex: none;
+  width: 80px;
+  margin-right: 20px;
+}
+.form_group-mobile .form_item:nth-child(2) {width: 100%;}
+
+.form_add_input {
+  display: inline-block;
+  font-size: 1.5rem;
+  padding-left: 30px;
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  color: #2AB7CA;
+  transition: color 0.3s ease;
+}
+.form_add_input:hover {color: #2AB7CA;}
+
+.form_add_input::before,
+.form_add_input::after {
+  content: "";
+  height: 20px; width: 20px;
+  position: absolute;
+  left: 0; top: 50%;
+  transform: translateY(-50%);
+  height: 2px; width: 14px;
+  background: #2AB7CA;
+  transition: transform 0.3s ease;
+}
+.form_add_input::after {transform: translateY(-50%) rotate(90deg);}
+.form_add_input:hover::before {transform: translateY(-50%) rotate(180deg);}
+.form_add_input:hover::after {transform: translateY(-50%) rotate(270deg);}
