@@ -63,7 +63,7 @@ const Contacts = props => {
       {!contacts.length && (
         <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
           <small>No contacts found</small>
-          <Link class="btn" to="/addContact" style={{marginTop: "2rem"}}>Add contact</Link>
+          <Link className="btn" to="/addContact" style={{marginTop: "2rem"}}>Add contact</Link>
         </div>
       )}
       <div className="listWrapper">
